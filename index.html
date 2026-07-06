@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sehaj Randhir Singh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18;
+    --ink-soft:#3d3d38;
+    --ink-faint:#6b6b63;
+    --paper:#fbfaf6;
+    --rule:#d8d5cb;
+    --rule-soft:#e6e3d9;
+    --accent:#2a4a5e;
+    --link:#2a4a5e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader',Georgia,serif;
+    font-size:15.5px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .sheet{
+    max-width:820px;
+    margin:0 auto;
+    padding:64px 56px 80px;
+  }
+
+  /* ---- Masthead ---- */
+  header{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:20px;
+    margin-bottom:26px;
+  }
+  h1{
+    font-size:38px;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .contact{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-top:12px;
+    letter-spacing:0.01em;
+  }
+  .contact a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--rule);}
+  .contact a:hover{border-bottom-color:var(--link);}
+  .sep{color:var(--rule);padding:0 7px;}
+
+  .thesis{
+    font-size:16.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin-top:22px;
+    max-width:64ch;
+    font-style:italic;
+  }
+  .thesis b{font-style:normal;font-weight:600;color:var(--ink);}
+
+  /* ---- Sections ---- */
+  section{margin-top:34px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:16px;
+  }
+  .section-head h2{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .section-head .line{
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+
+  /* ---- Entries ---- */
+  .entry{margin-bottom:20px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:5px;
+  }
+  .entry-title{
+    font-size:16px;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:-0.005em;
+  }
+  .entry-title .role{
+    font-weight:400;
+    color:var(--ink-faint);
+    font-size:14.5px;
+  }
+  .entry-title .role::before{content:" · ";color:var(--rule);}
+  .entry-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    white-space:nowrap;
+    letter-spacing:0.02em;
+    flex-shrink:0;
+    padding-top:2px;
+  }
+  .entry-body{
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.52;
+    max-width:70ch;
+  }
+  .entry-body a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--rule);}
+  .entry-body a:hover{border-bottom-color:var(--link);}
+  .flag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    border:1px solid var(--rule);
+    border-radius:2px;
+    padding:1px 6px;
+    margin-left:8px;
+    vertical-align:1px;
+  }
+
+  /* ---- Two-column compact blocks ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 40px;
+  }
+  .skillrow{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:16px;
+    padding:7px 0;
+    border-top:1px solid var(--rule-soft);
+    align-items:baseline;
+  }
+  .skillrow:first-child{border-top:none;}
+  .skill-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-top:1px;
+  }
+  .skill-val{color:var(--ink-soft);font-size:14.5px;line-height:1.45;}
+
+  .edu-block{margin-bottom:14px;}
+  .edu-list{
+    list-style:none;
+    margin-top:6px;
+  }
+  .edu-list li{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    padding-left:16px;
+    position:relative;
+    line-height:1.5;
+  }
+  .edu-list li::before{
+    content:"–";
+    position:absolute;
+    left:0;
+    color:var(--ink-faint);
+  }
+
+  .philosophy{
+    font-size:16px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    font-style:italic;
+    max-width:66ch;
+  }
+
+  /* ---- Print ---- */
+  @media print{
+    body{background:#fff;font-size:10.2pt;}
+    .sheet{max-width:none;padding:0;margin:0;}
+    section{margin-top:16pt;page-break-inside:avoid;}
+    .entry{page-break-inside:avoid;}
+    .flag{border-color:#bbb;}
+    a{color:var(--ink)!important;border:none!important;}
+    @page{margin:14mm 15mm;}
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width:640px){
+    .sheet{padding:40px 24px 56px;}
+    h1{font-size:30px;}
+    .entry-head{flex-direction:column;gap:2px;}
+    .entry-date{padding-top:0;}
+    .grid{grid-template-columns:1fr;}
+    .skillrow{grid-template-columns:1fr;gap:3px;}
+    .thesis{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>Sehaj Randhir Singh</h1>
+    <div class="contact">
+      <a href="mailto:sehajrsinghs@gmail.com">sehajrsinghs@gmail.com</a><span class="sep">·</span>347-207-2424<span class="sep">·</span>New York, NY
+      <br style="line-height:2.2">
+      <a href="https://sehajr-singhs.github.io/adaptive-contact-dynamics">adaptive-contact-dynamics</a><span class="sep">·</span><a href="https://github.com/sehajr-singhs">github.com/sehajr-singhs</a>
+    </div>
+    <p class="thesis">
+      Robots fail in the real world the moment the world stops matching what they were trained on, and the way you get a robot that keeps working as things change isn't more data, it's an architecture built to absorb the change. That architecture is control, and it's the layer I build at, from AI that runs heavy industrial systems to robots that have to understand and act in environments that won't hold still.
+    </p>
+  </header>
+
+  <section>
+    <div class="section-head"><h2>Research</h2><span class="line"></span></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Formal Verification of Neural Voltage Control<span class="role">Research Collaborator, Cui Research Group, NYU Tandon ECE</span></div>
+        <div class="entry-date">2026 – Present</div>
+      </div>
+      <div class="entry-body">
+        Research collaborator in Prof. Wenqi Cui's group in Electrical and Computer Engineering at NYU Tandon, adding formal neural-network verification to a switching-reference voltage controller for distribution grids under AI-training data-center load. The controller keeps grid voltage inside the tight operating band when data centers cause fast periodic power swings that saturate standard droop control, and my work uses the CROWN family of verification tools so the stability guarantee holds for every input in a defined region rather than only the states I sampled.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Adaptive Contact-Rich Manipulation Under Changing Physics<span class="role">solo project, full repo + paper + site</span></div>
+        <div class="entry-date">2026</div>
+      </div>
+      <div class="entry-body">
+        A stability-constrained neural adaptive controller tested for recovery when contact physics drift mid-task, run across four MuJoCo environments including the real OGBench cube-single benchmark with the UR5e arm in the loop. A bounded radial-basis network sits inside a Lyapunov-derived update law, so the network supplies the features and the law supplies the stability. On the gravity-loaded arm it returns tracking error to 4.4 degrees where the fixed baseline stays at 27.2 and an unconstrained ablation diverges, and on OGBench it halves joint tracking error and lands the cube more than twice as close to the goal while the unconstrained version at the same gain goes fully unstable. The contribution is the demonstration that the constraint lets you run the adaptation gain high enough to recover fast without the instability the same gain produces without it. Five seeds, every number traced to saved data, honest about where the method ties or loses. <a href="https://sehajr-singhs.github.io/adaptive-contact-dynamics">paper + code + site</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Electric Adaptation<span class="role">independent framework, ongoing</span></div>
+        <div class="entry-date">2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        A control framework for electrically driven systems that self-optimize as their components age, built on Model Reference Adaptive Control with Lyapunov stability guarantees extended by physics-informed neural networks across electrical, thermal, and mechanical domains. Currently scoping validation on three-phase induction motors and building a multi-domain sensor platform for real-time motor parameter identification as the hardware bed. Open-source whitepaper published. This is the longer-horizon program the manipulation work above is one concrete step inside.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Differentiable physics-informed power-routing compiler<span class="role">independent, early build</span></div>
+        <div class="entry-date">2026 – Present</div>
+      </div>
+      <div class="entry-body">
+        An in-progress project to solve AC power-flow routing faster than legacy industrial suites by writing the real and reactive power-balance and voltage-limit equations in JAX for automatic differentiation, then training a network that maps fluctuating load demand to generation setpoints with the differentiable physics engine as the loss layer so the outputs respect physical constraints by construction. Built on standard benchmark grids such as the IEEE 14-bus and 118-bus test cases. Early stage, framed honestly as direction rather than result.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Physics-grounded self-modeling AI<span class="role">paper in progress</span></div>
+        <div class="entry-date">2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        Authoring a paper on letting AI systems re-engineer their own assumptions through physics-based understanding, so a model can rewrite what it believes about a system as the hardware state evolves rather than holding a fixed learned prior. Unpublished, in progress.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Applied &amp; Professional Work</h2><span class="line"></span></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Power-systems modeling<span class="role">grid infrastructure projects</span></div>
+        <div class="entry-date">ongoing</div>
+      </div>
+      <div class="entry-body">
+        Build and run power-flow simulations for grid infrastructure design, gathering and analyzing the simulation data and producing engineering reports that inform decisions such as line selection and routing. This includes modeling gas turbine dynamics so the generation side is understood more accurately, because a turbine modeled well tells you what the machine actually does under load instead of what a datasheet assumes, which sharpens the power-flow diagrams. Work conducted under confidentiality, described here at the level of capability rather than client detail.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Research Intern<span class="role">data-center grid infrastructure</span></div>
+        <div class="entry-date">2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        Researching power-distribution bottlenecks and grid strain driven by the exponential compute demand of large-scale data centers. Role and findings held under confidentiality.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Competitions</h2><span class="line"></span></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">MIT THINK Scholars, Semifinalist</div>
+        <div class="entry-date">2026</div>
+      </div>
+      <div class="entry-body">
+        Top 29 of 1,042 applicants, roughly 3 percent, for a proposal on electrically adaptive induction-motor control via a compound AI architecture. Interview completed.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Anduril AI Grand Prix, Team GREMLIN<span class="role">Team Lead &amp; Algorithm R&amp;D Lead</span></div>
+        <div class="entry-date">2026</div>
+      </div>
+      <div class="entry-body">
+        Leading GREMLIN in Anduril's autonomous drone racing competition, where every team flies an identical drone and the whole competitive edge is the autonomy software that flies the course with zero human control. I lead the team and run the algorithm research and development, and we passed Qualifier 1. This is autonomy under real flight dynamics, the same problem as the manipulation work, just airborne.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">MIT Beaver Works CubeSat Program<span class="role">Co-Lead &amp; Engineering Lead</span></div>
+        <div class="entry-date">Sept 2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        Leading subsystem coordination and engineering design through the presentation phase of MIT's satellite program.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Advanced Development Grant<span class="role">OpenAI Parameter Golf challenge</span></div>
+        <div class="entry-date">2026</div>
+      </div>
+      <div class="entry-body">
+        Awarded an Advanced Development Grant through the OpenAI Parameter Golf challenge.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">FTC Robotics, Team 19426, World Championship<span class="role">Mechanical, CAD &amp; strategy</span></div>
+        <div class="entry-date">2025 – 2026</div>
+      </div>
+      <div class="entry-body">
+        Team 19426 advanced to the World Championship. I contributed significantly as a mechanical member on the robot CAD and on game strategy, the design and the in-match decision logic the build had to support.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>School Leadership</h2><span class="line"></span></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Engineering Club, Founder &amp; Lead<span class="role">QHSS</span></div>
+        <div class="entry-date">Sept 2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        Founded the school's engineering club for research-driven and FTC STEAM projects, running workshops and building the team's technical initiatives from the ground up.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Science Olympiad, Hovercraft &amp; EV Co-Lead<span class="role">QHSS</span></div>
+        <div class="entry-date">Sept 2025 – Present</div>
+      </div>
+      <div class="entry-body">
+        Lead engineering design, build, testing, and team training across both events. 1st place, Grover High School Regional Invitational, Hovercraft, Jan 2026.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Writing</h2><span class="line"></span></div>
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Sikh philosophy, science, and meta-science<span class="role">independent writing</span></div>
+        <div class="entry-date">ongoing</div>
+      </div>
+      <div class="entry-body">
+        Writing on Sikh philosophy where it meets science, meta-science, and how we make sense of the world, working through what Sikhi is actually meant to be rather than how it's usually flattened. It's part of how I think about my own background, and it's where I practice writing that has to stay precise and clear for a general reader at once.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Skills</h2><span class="line"></span></div>
+    <div class="skillrow">
+      <div class="skill-label">Control &amp; Engineering</div>
+      <div class="skill-val">MRAC · Lyapunov stability · physics-informed neural networks · adaptive control · multi-domain sensing · embedded systems · control-loop design · signal processing · CAD</div>
+    </div>
+    <div class="skillrow">
+      <div class="skill-label">Software &amp; Tooling</div>
+      <div class="skill-val">Python · JAX · MuJoCo · PyTorch · MATLAB · Git · LaTeX · simulation &amp; data analysis</div>
+    </div>
+    <div class="skillrow">
+      <div class="skill-label">Technical Writing</div>
+      <div class="skill-val">research papers · whitepapers · architecture documentation · explaining technical work to non-technical audiences</div>
+    </div>
+    <div class="skillrow">
+      <div class="skill-label">Languages</div>
+      <div class="skill-val">English (native) · Punjabi (proficient) · Hindi (basic)</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Education</h2><span class="line"></span></div>
+    <div class="edu-block">
+      <div class="entry-head">
+        <div class="entry-title">Queens High School for the Sciences at York College (QHSS)<span class="role">Jamaica, NY</span></div>
+        <div class="entry-date">2024 – 2028</div>
+      </div>
+      <div class="entry-body">
+        Honors track, consistent Honor Roll. 8 AP courses taken, including Physics C: Mechanics, Chemistry, Statistics, and Computer Science A. Advanced Research track. Competitive tennis and swimming.
+      </div>
+    </div>
+    <div class="edu-block">
+      <div class="entry-head">
+        <div class="entry-title">Coursework beyond school</div>
+        <div class="entry-date">2025 – Present</div>
+      </div>
+      <ul class="edu-list">
+        <li>Stanford Engineering Everywhere, fundamentals through robotics</li>
+        <li>Harvard CS50</li>
+        <li>MIT OpenCourseWare, physics and flight mechanics</li>
+        <li>Cooper Union Design Thinking Summer STEM</li>
+        <li>Contributor to MuJoCo datasets and models</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Operating Philosophy</h2><span class="line"></span></div>
+    <p class="philosophy">
+      Everything is a system operating at scale, and the only real question is whether it works and whether it keeps working as the world around it changes. First-principles from the physics up.
+    </p>
+  </section>
+
+</div>
+</body>
+</html>
